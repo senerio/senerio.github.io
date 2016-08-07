@@ -88,7 +88,8 @@ function updateTable(input, add) {
 	}
 	else {
 		for(var j=1; j<=6; j++) {
-			updateOne(input.slice(3), input.slice(0,3), j, add);
+			slice = input.indexOf(input.match(/[0-9]/));
+			updateOne(input.slice(slice), input.slice(0,slice), j, add);
 		}
 	}
 	return cardId;
