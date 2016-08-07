@@ -1,15 +1,30 @@
-#debug {
-		position: fixed;
-		top: 0;
-		right: 0;
-	}
-button {
-	display: inline-block;
+body {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row-reverse;
+	margin: 0;
 }
-option:nth-child(odd) {
-	background-color: #ddd;
+* {
+	box-sizing: border-box;
+	font-family: sans-serif;
 }
-div {
+div#result {
+	flex-grow: 9;
+	padding: 1em 2em;
+}
+div#side {
+	flex-grow: 1;
+	padding: 1.0em 0.5em;
+	overflow-y: scroll;
+	background-color: rgba(250,225,208,1);
+	height: 100vh;
+	/*background-color: rgba(172,150,126,1);*/
+}
+#side input#input, #side button {
+	/*background-color: rgba(132,237,230,1);
+	color: rgba(62,183,164,1);*/
+	background-color: rgba(255,255,255,1);
+	width: 100%;
 	display: block;
 }
 table {
@@ -21,18 +36,10 @@ td {
 	border-style: solid;
 	border-color: rgba(0,0,0,0.1);
 }
-tr {
-}
-tr:hover {
-	background-color: #eee;
-}
-.attribute td:nth-child(2) {background-color: rgba(255, 41, 41, 0.2);}
-.attribute td:nth-child(3) {background-color: rgba(0, 136, 255, 0.2);}
-.attribute td:nth-child(4) {background-color: rgba(0, 158, 47, 0.2);}
-.attribute td:nth-child(5) {background-color: rgba(255, 208, 0, 0.2);}
-.attribute td:nth-child(6) {background-color: rgba(152, 35, 219, 0.2);}
-.attribute td:nth-child(2):hover {background-color: rgba(255, 41, 41, 0.8);}
-.attribute td:nth-child(3):hover {background-color: rgba(0, 136, 255, 0.8);}
-.attribute td:nth-child(4):hover {background-color: rgba(0, 158, 47, 0.8);}
-.attribute td:nth-child(5):hover {background-color: rgba(255, 208, 0, 0.8);}
-.attribute td:nth-child(6):hover {background-color: rgba(152, 35, 219, 0.8);}
+td:nth-child(2) {background-color: rgba(255, 41, 41, 0.2);}
+td:nth-child(3) {background-color: rgba(0, 136, 255, 0.2);}
+td:nth-child(4) {background-color: rgba(0, 158, 47, 0.2);}
+td:nth-child(5) {background-color: rgba(255, 208, 0, 0.2);}
+td:nth-child(6) {background-color: rgba(152, 35, 219, 0.2);}
+tr:nth-child(6) ~ tr td {background-color: rgba(255, 255, 255, 0.2);}
+/*tr:hover {background-color: rgba(250,225,208,1);}*/

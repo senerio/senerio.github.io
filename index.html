@@ -5,93 +5,98 @@
 	<link href="style.css" rel="stylesheet" type="text/css">
 	<script src="MEvolutionSacrifice.js"></script>
 	<script src="list.js"></script>
+	<meta name="viewport" content="width=device-width">
 </head>
 <body>
-	<p>
-		<select id="list"></select>
-		<button type="button" id="submit">Submit</button>
-	</p>
-	<div id="debug">
-
-	</div>
-
 	<div id="result">
-		<table class="attribute">
+		<table id="data">
+			<thead><th colspan="6">Fairies</th></thead>
 			<tr>
-			<td></td>
-			<td>R</td>
-			<td>B</td>
-			<td>G</td>
-			<td>Y</td>
-			<td>P</td>
+				<td></td>
+				<td>R</td>
+				<td>B</td>
+				<td>G</td>
+				<td>Y</td>
+				<td>P</td>
 			</tr>
 			<tr>
-			<td>Fairy Baby</td>
-			<td id="f81004"></td>
-			<td id="f82004"></td>
-			<td id="f83004"></td>
-			<td id="f84004"></td>
-			<td id="f85004"></td>
+				<td>Fairy Baby</td>
+				<td id="f81004"></td>
+				<td id="f82004"></td>
+				<td id="f83004"></td>
+				<td id="f84004"></td>
+				<td id="f85004"></td>
 			</tr>
 			<tr>
-			<td>Fairy Lady</td>
-			<td id="f81003"></td>
-			<td id="f82003"></td>
-			<td id="f83003"></td>
-			<td id="f84003"></td>
-			<td id="f85003"></td>
+				<td>Fairy Lady</td>
+				<td id="f81003"></td>
+				<td id="f82003"></td>
+				<td id="f83003"></td>
+				<td id="f84003"></td>
+				<td id="f85003"></td>
 			</tr>
 			<tr>
-			<td>Sun Fairy</td>
-			<td id="f81005"></td>
-			<td id="f82005"></td>
-			<td id="f83005"></td>
-			<td id="f84005"></td>
-			<td id="f85005"></td>
+				<td>Sun Fairy</td>
+				<td id="f81005"></td>
+				<td id="f82005"></td>
+				<td id="f83005"></td>
+				<td id="f84005"></td>
+				<td id="f85005"></td>
 			</tr>
 			<tr>
-			<td>Moon Fairy</td>
-			<td id="f81006"></td>
-			<td id="f82006"></td>
-			<td id="f83006"></td>
-			<td id="f84006"></td>
-			<td id="f85006"></td>
+				<td>Moon Fairy</td>
+				<td id="f81006"></td>
+				<td id="f82006"></td>
+				<td id="f83006"></td>
+				<td id="f84006"></td>
+				<td id="f85006"></td>
 			</tr>
 			<tr>
-			<td>Fairy Princess</td>
-			<td id="f81002"></td>
-			<td id="f82002"></td>
-			<td id="f83002"></td>
-			<td id="f84002"></td>
-			<td id="f85002"></td>
+				<td>Fairy Princess</td>
+				<td id="f81002"></td>
+				<td id="f82002"></td>
+				<td id="f83002"></td>
+				<td id="f84002"></td>
+				<td id="f85002"></td>
+			</tr>
+			<tr>
+				<td colspan="5">Grimoire Fairy</td>
+				<td id="f80010"></td>
+			</tr>
+			<tr>
+				<td colspan="5">Silver Grimoire Fairy</td>
+				<td id="f80009"></td>
+			</tr>
+			<tr>
+				<td colspan="5">Gold Grimoire Fairy</td>
+				<td id="f80008"></td>
+			</tr>
+			<tr>
+				<td colspan="5">Platinum Grimoire Fairy</td>
+				<td id="f80007"></td>
+			</tr>
+			<tr>
+				<td colspan="5">Fairy Queen</td>
+				<td id="f81001"></td>
+			</tr>
+			<tr>
+				<td colspan="6">Others</td>
+			</tr>
+			<tr>
+				<td colspan="6" id="misc"></td>
 			</tr>
 		</table>
-		<table class="grimoire">
-			<tr>
-			<td>Grimoire Fairy</td>
-			<td id="f80010"></td>
-			</tr>
-			<tr>
-			<td>Silver Grimoire Fairy</td>
-			<td id="f80009"></td>
-			</tr>
-			<tr>
-			<td>Gold Grimoire Fairy</td>
-			<td id="f80008"></td>
-			</tr>
-			<tr>
-			<td>Platinum Grimoire Fairy</td>
-			<td id="f80007"></td>
-			</tr>
-			<tr>
-			<td>Fairy Queen</td>
-			<td id="f81001"></td>
-			</tr>
-		</table>
-		Others
-		<div id="misc">
-
-		</div>
+	</div>
+	<div id="side">
+		Route:
+		<label><input type="radio" name="route" id="sun" checked="checked">Sun</label>
+		<label><input type="radio" name="route" id="moon">Moon</label>
+		<input list="princes" id="input">
+		<datalist id="princes">
+		</datalist>
+		<button id="add">+</button>
+		<p id="added">
+		</p>
 	</div>
 	<script src="calculate.js"></script>
 </body>
