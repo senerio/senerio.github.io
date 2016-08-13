@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Skills</title>
+	<meta name="viewport" content="width=device-width">
+	<style>
+		table {
+			border-collapse: collapse;
+		}
+		td {
+			padding: 5px;
+			border: 1px solid #ccc;
+		}
+	</style>
+	<script src="skills.js"></script>
+	<script src="list.js"></script>
+	<script>
+	window.onload = function() {
+		var table = document.getElementsByTagName("tbody")[0];
+		for(var i in list) { if(list[i].cardId < 1000) {
+			no = list[i].no;
+			row = table.insertRow(-1);
+			row.insertCell(0).innerHTML = list[i].no;
+			row.insertCell(1).innerHTML = list[i].name;
+			row.insertCell(2).innerHTML = skills[no].Before.lskill;
+			row.insertCell(3).innerHTML = skills[no].Before.skill;
+		}}
+	};
+	</script>
+</head>
+<body>
+	<table>
+		<thead>
+			<tr>
+				<td>No.</td>
+				<td>Name</td>
+				<td>Leader Skill</td>
+				<td>Skill</td>
+			</tr>
+		</thead>
+		<tbody>
+			
+		</tbody>
+	</table>
+</body>
+</html>
