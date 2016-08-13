@@ -1,0 +1,49 @@
+body {
+	font-family: Arial;
+	font-size: 0.8em;
+}
+button, textarea, p {
+	margin: 1em;
+	min-height: 3em;
+}
+textarea {
+	width: 25em;
+}
+div {
+	width: 90%;
+	margin: auto;
+	display: flex;
+	align-items: center;
+}
+table {
+	margin: 1em auto;
+}
+.stat {
+	color: #ff6666;
+}
+.lv {
+	color: #990099;
+	font-weight: bold;
+}
+tr:nth-child(odd) {
+	background: #d9d9d9;
+}
+tr:nth-child(even) {
+	background: #e6e6e6;
+}
+td,th {
+	text-align: center;
+	padding: 0.2em 0.3em;
+}
+footer {
+	font-size: 0.75em;
+	text-align: center;
+}
+footer a, footer span {
+	text-decoration: none;
+	color: #cc0088;
+}
+th a {
+	text-decoration: none;
+	color: #000000;
+}
