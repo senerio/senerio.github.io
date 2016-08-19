@@ -15,16 +15,32 @@
 	<script src="skills.js"></script>
 	<script src="list.js"></script>
 	<script>
+	function getId(object, value) {
+		return Object.keys(object).find(key => object[key]["no"] === value);
+	}
 	window.onload = function() {
-		var table = document.getElementsByTagName("tbody")[0];
-		for(var i in list) { if(list[i].cardId < 1000) {
-			no = list[i].no;
+
+		function printRow(i, route) {
+			no = getId(list, i);
 			row = table.insertRow(-1);
-			row.insertCell(0).innerHTML = list[i].no;
-			row.insertCell(1).innerHTML = list[i].name;
-			row.insertCell(2).innerHTML = skills[no].Before.lskill;
-			row.insertCell(3).innerHTML = skills[no].Before.skill;
-		}}
+			row.insertCell(0).innerHTML = list[no].no;
+			row.insertCell(1).innerHTML = list[no].name;
+			row.insertCell(2).innerHTML = skills[i][route].lskill;
+			row.insertCell(3).innerHTML = skills[i][route].skill;
+		}
+
+		var table = document.getElementsByTagName("tbody")[0];
+		for(var i in skills) {
+			try {
+				printRow(i, "Before");
+				printRow(i, "Sun");
+				printRow(i, "Moon");
+			}
+			catch(err) {
+				table.deleteRow(-1);
+			}
+		}
+		
 	};
 	</script>
 </head>

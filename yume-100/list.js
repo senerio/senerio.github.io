@@ -362,5 +362,9 @@ list = {
 "304":{"cardId":"304","no":"279","name":"Toya (Mononoke)"},
 "305":{"cardId":"305","no":"280","name":"Kanoe (Mononoke)"},
 "306":{"cardId":"306","no":"281","name":"Kanoto (Mononoke)"},
-"81028":{"cardId":"81028","no":"282","name":"Fairy Princess of the Night Walk Tales"}
+"81028":{"cardId":"81028","no":"81028","name":"Fairy Princess of the Night Walk Tales"},
+"307":{"cardId":"307","no":"282","name":"Haldine (Resort)"},
+"308":{"cardId":"308","no":"283","name":"Prytwen (Resort)"},
+"309":{"cardId":"309","no":"284","name":"Volker (Resort)"},
+"310":{"cardId":"310","no":"285","name":"Sorbge (Resort)"}
 }
