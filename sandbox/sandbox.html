@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sandbox</title>
+	<meta name="viewport" content="width=device-width">
+	<style type="text/css">
+	table {
+		margin: auto;
+		border-collapse: collapse;
+		width: 80%;
+	}
+	table td {
+		border: 1px solid black;
+		padding: 0.1em 0.5em;
+	}
+	#stats td:nth-child(2),
+	#stats td:nth-child(3),
+	#stats td:nth-child(4),
+	.tiny {
+		font-size: 5pt;
+	}
+	#stats tr:nth-child(2) td {
+		font-size: medium;
+	}
+	#a {
+		
+	}
+	</style>
+</head>
+<body>
+<div id="a">
+	<table>
+	    <tr><th colspan="2">{{{name|}}}<br>{{{name_jp|}}}</th></tr>
+	    <tr><td>No.</td><td>{{{no}}}</td></tr>
+	    <tr><td>Rarity</td><td class="tiny">{{Rarity|{{{rarity|}}}}}</td></tr>
+	    <tr><td>Attribute</td><td>{{{attribute|}}}</td></tr>
+	    <tr><td>Cost</td><td>{{{cost|}}}</td></tr>
+	    <tr><td>Max Level</td><td>{{{lvmax|}}}</td></tr>
+	</table>
+	<table id="stats">
+	    <tr><th colspan="4">Statistics</th></tr>
+	    <tr><td></td><td>Base</td><td>Max</td><td>&#128149;</td></tr>
+	    <tr><td>HP</td><td>{{{hp_base|}}}</td><td>{{{hp_max|}}}</td><td>{{{hp_break|}}}</td></tr>
+	    <tr><td>Attack</td><td>{{{atk_base|}}}</td><td>{{{atk_max|}}}</td><td>{{{atk_break|}}}</td></tr>
+	    <tr><td>Recovery</td><td>{{{rp_base|}}}</td><td>{{{rp_max|}}}</td><td>{{{rp_break|}}}</td></tr>
+	</table>
+	<table>
+	    <tr><th colspan="2">Leader Skill</th></tr>
+	    <tr><td>Name</td><td>{{{lskill_name|}}}</td></tr>
+	    <tr><td>Effect</td><td>{{{lskill_desc|}}}</td></tr>
+	    <tr><td colspan="2">Skill</td></tr>
+	    <tr><td>Name</td><td>{{{skill_name|}}}</td></tr>
+	    <tr><td>Effect</td><td>{{{skill_desc|}}}</td></tr>
+	</table>
+	<table>
+	    <tr><th colspan="2">Farewell</th></tr>
+	    <tr><td>Gold</td><td>{{{gold|}}}</td></tr>
+	    <tr><td>Ring Shards</td><td>{{{ring|}}}</td></tr>
+    </table>
+</div>
+<div id="b">
+	<img src="1.png" width="200">
+</div>
+</body>
+</html>
