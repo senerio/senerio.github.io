@@ -372,9 +372,18 @@ list = {
 "313":{"cardId":"313","no":"288","name":"Frites (Forest)"},
 "83029":{"cardId":"83029","no":"83029","name":"Fairy Princess (Forest)"},
 "314":{"cardId":"314","no":"289","name":"Micaela (Tactics)"},
-"315":{"cardId":"315","no":"290","name":"Spelvia (Tactics)"},
+"315":{"cardId":"315","no":"290","name":"Superbia"},
 "316":{"cardId":"316","no":"291","name":"Las (Tactics)"},
 "317":{"cardId":"317","no":"292","name":"Ira (Tactics)"},
 "318":{"cardId":"318","no":"293","name":"Lecien (Tactics)"},
-"319":{"cardId":"319","no":"294","name":"Grad (Tactics)"}
+"319":{"cardId":"319","no":"294","name":"Grad (Tactics)"},
+"84030":{"cardId":"84030","no":"84030","name":"Fairy Princess (Hero)"},
+"81030":{"cardId":"81030","no":"81030","name":"Fairy Princess (Hero)"},
+"321":{"cardId":"321","no":"295","name":"Vairy (Hero)"},
+"322":{"cardId":"322","no":"296","name":"Apis (Hero)"},
+"324":{"cardId":"324","no":"297","name":"Azuma (Hero)"},
+"320":{"cardId":"320","no":"298","name":"Seras"},
+"325":{"cardId":"325","no":"299","name":"Kagetora"},
+"326":{"cardId":"326","no":"300","name":"Michiru (Story)"},
+"81031":{"cardId":"81031","no":"81031","name":"Fairy Princess (Story)"}
 }
