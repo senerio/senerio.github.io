@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sandbox</title>
+	<meta name="viewport" content="width=device-width">
+	<meta charset="UTF-8">
+	<style type="text/css">
+	.stats {
+		border-collapse: collapse;
+		font-family: sans-serif;
+		font-size: smaller;
+	}
+	.stats td {
+		border: 1px solid #888;
+		padding: 0 1em 0 0.5em;
+	}
+	.stats th {
+		border: none;
+		padding: 0 1em;
+	}
+	.stats tr:not(:nth-child(2)):not(:nth-child(3)) td:nth-of-type(even), /* stat values */
+	.stats td:only-child /* stats header */ {
+		text-align: center;
+	}
+	.stats tr:first-child th /* first row */ {
+		font-weight: bold;
+		font-size: large;
+	}
+	.stats p { /* jp name */
+		font-weight: normal;
+		font-size: small;
+		font-family: serif;
+		margin: 0;
+		color: #888;
+	}
+	/* width fixing */
+	.stats td:nth-of-type(odd) {width: 90px;}
+	.stats td:nth-of-type(even) {width: 100px;}
+	/* rarity */
+	.stats tr td:nth-of-type(odd) {
+		font-weight: normal;
+		background-color: #000;
+		color: #fff;
+	}
+	.rainbow tr td:nth-of-type(odd) {
+		color: cyan;
+	}
+	.gold tr td:nth-of-type(odd) {
+		color: gold;
+	}
+	.silver tr td:nth-of-type(odd) {
+		color: silver;
+	}
+	/* icons */
+	.stats tr:nth-child(5) td:nth-of-type(1)::before {
+		content: url('icons/HP.png');
+		padding-right: 5px;
+	}
+	.stats tr:nth-child(6) td:nth-of-type(1)::before {
+		content: url('icons/Attack.png');
+		padding-right: 5px;
+	}
+	.stats tr:nth-child(7) td:nth-of-type(1)::before {
+		content: url('icons/Defense.png');
+		padding-right: 5px;
+	}
+	.stats tr:nth-child(8) td:nth-of-type(1)::before {
+		content: '幸';
+		padding-right: 5px;
+		padding-left: 2px;
+	}
+	.stats tr:nth-child(9) td:nth-of-type(1)::before {
+		content: url('icons/Critical.png');
+		padding-right: 5px;
+	}
+	.stats tr:nth-child(5) td:nth-of-type(3)::before {
+		content: '魂';
+		padding-right: 5px;
+		padding-left: 2px;
+	}
+	.stats tr:nth-child(6) td:nth-of-type(3)::before {
+		content: url('icons/Magic.png');
+		padding-right: 5px;
+	}
+	.stats tr:nth-child(7) td:nth-of-type(3)::before {
+		content: url('icons/Resistance.png');
+		padding-right: 5px;
+	}
+	.stats tr:nth-child(8) td:nth-of-type(3)::before {
+		content: '俊';
+		padding-right: 5px;
+		padding-left: 2px;
+	}
+	.stats tr:nth-child(9) td:nth-of-type(3)::before {
+		content: url('icons/Dodge.png');
+		padding-right: 5px;
+	}
+	</style>
+</head>
+<body>
+
+<table class="stats demo">
+<tr>
+	<th><img src="icons/god.png"></th>
+	<th colspan="4">
+	Takemikazuchi
+	<p>タケミカヅチ</p>
+	</th>
+	<th><img src="icons/swordsman.png"></th>
+</tr>
+	<tr><th rowspan="8"><img src="takemikazuchi.png"></th>
+		<td>Race</td><td>God</td>
+		<td>Generation</td><td>Oudai</td>
+		<th rowspan="8">(sprite)</th></tr>
+	<tr><td>Job</td><td>Swordsman</td>
+		<td>Rarity</td><td>4</td></tr>
+	<tr><td colspan="4">Base Stats / Lv50</td></tr>
+	<tr><td>Health</td><td># / #</td>
+		<td>Soul</td><td># / #</td></tr>
+	<tr><td>Attack</td><td># / #</td>
+		<td>Magic</td><td># / #</td></tr>
+	<tr><td>Defense</td><td># / #</td>
+		<td>Resistance</td><td># / #</td></tr>
+	<tr><td>Luck</td><td># / #</td>
+		<td>Agility</td><td># / #</td></tr>
+	<tr><td>Critical</td><td># / #</td>
+		<td>Dodge</td><td># / #</td></tr>
+</table>
+
+<!--
+<table class="stats demo">
+<tr>
+	<th><img src="icons/god.png"></th>
+	<th><img src="icons/swordsman.png"></th>
+	<th colspan="4">
+	Takemikazuchi
+	<p>タケミカヅチ</p>
+	</td>
+</tr>
+	<tr><th colspan="2" rowspan="8"><img src="takemikazuchi.png"></th>
+		<td>Race</td><td>God</td>
+		<td>Generation</td><td>Oudai</td></tr>
+	<tr><td>Job</td><td>Swordsman</td>
+		<td>Rarity</td><td>4</td></tr>
+	<tr><td colspan="4">Base Stats / Lv50</td></tr>
+	<tr><td>Health</td><td>{{{health|}}} / {{{health_yin_lv50|}}}</td>
+		<td>Soul</td><td>{{{soul|}}} / {{{soul_yin_lv50|}}}</td></tr>
+	<tr><td>Attack</td><td>{{{attack|}}} / {{{attack_yin_lv50|}}}</td>
+		<td>Magic</td><td>{{{magic|}}} / {{{magic_yin_lv50|}}}</td></tr>
+	<tr><td>Defense</td><td>{{{defense|}}} / {{{defense_yin_lv50|}}}</td>
+		<td>Resistance</td><td>{{{resistance|}}} / {{{resistance_yin_lv50|}}}</td></tr>
+	<tr><td>Luck</td><td>{{{luck|}}} / {{{luck_yin_lv50|}}}</td>
+		<td>Agility</td><td>{{{agility|}}} / {{{agility_yin_lv50|}}}</td></tr>
+	<tr><td>Critical</td><td>{{{critical|}}} / {{{critical_yin_lv50|}}}</td>
+		<td>Dodge</td><td>{{{dodge|}}} / {{{dodge_yin_lv50|}}}</td></tr>
+</table>
+
+-->
+<br><br>
+<textarea>
+<onlyinclude>
+{{#tag:tabber|Basic =
+<table class="stats {{{rarity|}}}">
+<tr>
+	<th>[[File:{{{race|}}}-icon.png|link=Race]]</th>
+	<th>[[File:{{{job|}}}-icon.png|link=Job]]</th>
+	<th colspan="4">
+	{{{name|}}}
+	<p>{{{name_jp|}}}</p>
+	</td>
+</tr>
+	<tr><th colspan="2" rowspan="8">[[File:{{{name|}}}.png]]</th>
+		<td>Race</td><td>{{{race|}}}</td>
+		<td>Generation</td><td>{{{generation|}}}</td></tr>
+	<tr><td>Job</td><td>{{{job|}}}</td>
+		<td>Rarity</td><td>{{{rarity_n|}}}</td></tr>
+	<tr><td colspan="4">Base Stats / Lv50</td></tr>
+	<tr><td>Health</td><td>{{{health|}}} / {{{health_yin_lv50|}}}</td>
+		<td>Soul</td><td>{{{soul|}}} / {{{soul_yin_lv50|}}}</td></tr>
+	<tr><td>Attack</td><td>{{{attack|}}} / {{{attack_yin_lv50|}}}</td>
+		<td>Magic</td><td>{{{magic|}}} / {{{magic_yin_lv50|}}}</td></tr>
+	<tr><td>Defense</td><td>{{{defense|}}} / {{{defense_yin_lv50|}}}</td>
+		<td>Resistance</td><td>{{{resistance|}}} / {{{resistance_yin_lv50|}}}</td></tr>
+	<tr><td>Luck</td><td>{{{luck|}}} / {{{luck_yin_lv50|}}}</td>
+		<td>Agility</td><td>{{{agility|}}} / {{{agility_yin_lv50|}}}</td></tr>
+	<tr><td>Critical</td><td>{{{critical|}}} / {{{critical_yin_lv50|}}}</td>
+		<td>Dodge</td><td>{{{dodge|}}} / {{{dodge_yin_lv50|}}}</td></tr>
+</table>
+
+{{!}}-{{!}} Yin =
+<table class="stats {{{rarity|}}}">
+<tr>
+	<th>[[File:{{{race|}}}-icon.png|link=Race]]</th>
+	<th>[[File:{{{job|}}}-icon.png|link=Job]]</th>
+	<th colspan="4">
+	{{{name|}}}
+	<p>{{{name_jp|}}}</p>
+	</td>
+</tr>
+	<tr><th colspan="2" rowspan="8">[[File:{{{name|}}}.png]]</th>
+		<td>Race</td><td>{{{race|}}}</td>
+		<td>Generation</td><td>{{{generation|}}}</td></tr>
+	<tr><td>Job</td><td>{{{job_yin}}}</td>
+		<td>Rarity</td><td>{{{rarity_n}}}</td></tr>
+	<tr><td colspan="4">Base Stats / Lv50</td></tr>
+	<tr><td>Health</td><td>{{{health_yin}}} / {{{health_yin_lv50|}}}</td>
+		<td>Soul</td><td>{{{soul_yin}}} / {{{soul_yin_lv50|}}}</td></tr>
+	<tr><td>Attack</td><td>{{{attack_yin}}} / {{{attack_yin_lv50|}}}</td>
+		<td>Magic</td><td>{{{magic_yin}}} / {{{magic_yin_lv50|}}}</td></tr>
+	<tr><td>Defense</td><td>{{{defense_yin}}} / {{{defense_yin_lv50|}}}</td>
+		<td>Resistance</td><td>{{{resistance_yin}}} / {{{resistance_yin_lv50|}}}</td></tr>
+	<tr><td>Luck</td><td>{{{luck_yin}}} / {{{luck_yin_lv50|}}}</td>
+		<td>Agility</td><td>{{{agility_yin}}} / {{{agility_yin_lv50|}}}</td></tr>
+	<tr><td>Critical</td><td>{{{critical_yin}}} / {{{critical_yin_lv50|}}}</td>
+		<td>Dodge</td><td>{{{dodge_yin}}} / {{{dodge_yin_lv50|}}}</td></tr>
+</table>
+
+{{!}}-{{!}} Yang =
+<table class="stats {{{rarity|}}}">
+<tr>
+	<th>[[File:{{{race|}}}-icon.png|link=Race]]</th>
+	<th>[[File:{{{job|}}}-icon.png|link=Job]]</th>
+	<th colspan="4">
+	{{{name|}}}
+	<p>{{{name_jp|}}}</p>
+	</td>
+</tr>
+	<tr><th colspan="2" rowspan="8">[[File:{{{name|}}}.png]]</th>
+		<td>Race</td><td>{{{race|}}}</td>
+		<td>Generation</td><td>{{{generation|}}}</td></tr>
+	<tr><td>Job</td><td>{{{job_yang}}}</td>
+		<td>Rarity</td><td>{{{rarity_n}}}</td></tr>
+	<tr><td colspan="4">Base Stats / Lv50</td></tr>
+	<tr><td>Health</td><td>{{{health_yang}}} / {{{health_yang_lv50|}}}</td>
+		<td>Soul</td><td>{{{soul_yang}}} / {{{soul_yang_lv50|}}}</td></tr>
+	<tr><td>Attack</td><td>{{{attack_yang}}} / {{{attack_yang_lv50|}}}</td>
+		<td>Magic</td><td>{{{magic_yang}}} / {{{magic_yang_lv50|}}}</td></tr>
+	<tr><td>Defense</td><td>{{{defense_yang}}} / {{{defense_yang_lv50|}}}</td>
+		<td>Resistance</td><td>{{{resistance_yang}}} / {{{resistance_yang_lv50|}}}</td></tr>
+	<tr><td>Luck</td><td>{{{luck_yang}}} / {{{luck_yang_lv50|}}}</td>
+		<td>Agility</td><td>{{{agility_yang}}} / {{{agility_yang_lv50|}}}</td></tr>
+	<tr><td>Critical</td><td>{{{critical_yang}}} / {{{critical_yang_lv50|}}}</td>
+		<td>Dodge</td><td>{{{dodge_yang}}} / {{{dodge_yang_lv50|}}}</td></tr>
+</table>
+}}
+</onlyinclude><noinclude>
+<pre>
+{{Infobox
+|name = 
+|name_jp = 
+|race = 
+|generation = 
+|job = swordsman/swordsman-yin/swordsman-yang
+|rarity = gold/silver/rainbow
+|rarity_n = 
+|health = 
+|attack =  
+|defense = 
+|luck = 
+|critical =
+|soul = 
+|magic = 
+|resistance = 
+|agility = 
+|dodge = 
+|health_yin_lv50 = 
+|attack_yin_lv50 = 
+|defense_yin_lv50 = 
+|luck_yin_lv50 = 
+|critical_yin_lv50 =
+|soul_yin_lv50 = 
+|magic_yin_lv50 = 
+|resistance_yin_lv50 = 
+|agility_yin_lv50 = 
+|dodge_yin_lv50 = 
+}}
+</pre>
+</noinclude>
+</textarea>
+
+</body>
+</html>
