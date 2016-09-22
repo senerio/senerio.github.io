@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sekireidai</title>
+	<meta name="viewport" content="width=device-width">
+	<meta charset="UTF-8">
+	<style>
+	body, select, button {
+		background-color: #333;
+		color: #ddd;
+		font-size: larger;
+		font-family: serif;
+	}
+	div {
+		display: flex;
+		align-items: center;
+		width: 500px;
+		margin: auto;
+	}
+	select {
+		flex-grow: 1; 
+	}
+	table {
+		width: 100%;
+	}
+	th:nth-child(2) {
+		width: 80px;
+	}
+	tbody tr:nth-child(2n+1) {
+		background-color: #555;
+	}
+	td,th {
+		padding: 0.3em 1em;
+	}
+	</style>
+	<script src="characters.js"></script>
+	<script src="sekireidai.js"></script>
+	<script>
+	window.onload = function() {
+		populateAll();
+		document.getElementById("submitParents").onclick = printChild;
+		document.getElementById("submitChild").onclick = printParents;
+	}
+	function populateAll() {
+		populate("left");
+		populate("right");
+		populate("children");
+	}
+	function populate(parentPos) {
+		var parent = document.getElementById(parentPos);
+		for(var char of characters) {
+			var child = document.createElement("option");
+			child.setAttribute("value", char);
+			child.innerHTML = char;
+			parent.appendChild(child);
+		}
+	}
+	function getChild() {
+		var listLeft = document.getElementById("left");
+		var listRight = document.getElementById("right");
+		var parentLeft = listLeft.options[listLeft.selectedIndex].value;
+		var parentRight = listRight.options[listRight.selectedIndex].value;
+		return(sekireidai[parentLeft+","+parentRight]);
+	}
+	function printChild() {
+		var result = getChild();
+		var resultArea = document.getElementById("result");
+		resultArea.innerHTML = "";
+		document.getElementById("head").setAttribute("colspan","1");
+		try {
+			for(var char in result) {
+				rate = result[char]/result["total"]*100;
+				resultArea.innerHTML += "<tr><td>" + char + "</td><td>" + rate.toFixed(2) + "%</td></tr>";
+			}
+			resultArea.removeChild(resultArea.lastChild);
+		} catch(e) {}
+	}
+	function getParents() {
+		var listChildren = document.getElementById("children");
+		var selectedChild = listChildren.options[listChildren.selectedIndex].value;
+		var parents = {}
+		var total = 0;
+		for(var combo in sekireidai) {
+			count = sekireidai[combo][selectedChild];
+			if(count >= 1) {
+				parents[combo] = count;
+				total += count;
+			}
+		}
+		parents["total"] = total;
+		return(parents);
+	}
+	function printParents() {
+		var parents = getParents();
+		var resultArea = document.getElementById("result");
+		resultArea.innerHTML = "";
+		document.getElementById("head").setAttribute("colspan","2");
+		try {
+			for(var combo in parents) {
+				rate = parents[combo]/parents["total"]*100;
+				left = combo.split(",")[0]
+				right = combo.split(",")[1]
+				resultArea.innerHTML += "<tr><td>" + left + "</td><td>" + right + "</td><td>" + rate.toFixed(2) + "%</td></tr>";
+			}
+			resultArea.removeChild(resultArea.lastChild);
+		} catch(e) {}
+	}
+	</script>
+</head>
+<body>
+	<div>
+		<select id="left"></select>
+		&nbsp;x&nbsp;
+		<select id="right"></select>
+		<button id="submitParents" type="submit">=</button>
+	</div>
+	<div>
+		<select id="children"></select>
+		<button id="submitChild" type="submit">=</button>
+	</div>
+	<div>
+		<table>
+			<thead><th id="head">Character</th><th>Rate</th></thead>
+			<tbody id="result"></tbody>
+		</table>
+	</div>
+</body>
+</html>
