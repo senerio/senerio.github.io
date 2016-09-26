@@ -1,5 +1,5 @@
 function max(value,total) {
-	if (value<total) {
+	if (parseInt(value) < parseInt(total)) {
 		return "<span class=\"stat\">"+value+"</span>/"+total;
 	} else {
 		return value+"/"+total;
