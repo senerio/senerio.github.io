@@ -36,10 +36,10 @@ td {
 	border-style: solid;
 	border-color: rgba(0,0,0,0.1);
 }
-td:nth-child(2) {background-color: rgba(255, 41, 41, 0.2);}
-td:nth-child(3) {background-color: rgba(0, 136, 255, 0.2);}
-td:nth-child(4) {background-color: rgba(0, 158, 47, 0.2);}
-td:nth-child(5) {background-color: rgba(255, 208, 0, 0.2);}
-td:nth-child(6) {background-color: rgba(152, 35, 219, 0.2);}
-tr:nth-child(6) ~ tr td {background-color: rgba(255, 255, 255, 0.2);}
+#awakening td:nth-child(2) {background-color: rgba(255, 41, 41, 0.2);}
+#awakening td:nth-child(3) {background-color: rgba(0, 136, 255, 0.2);}
+#awakening td:nth-child(4) {background-color: rgba(0, 158, 47, 0.2);}
+#awakening td:nth-child(5) {background-color: rgba(255, 208, 0, 0.2);}
+#awakening td:nth-child(6) {background-color: rgba(152, 35, 219, 0.2);}
+#awakening tr:nth-child(6) ~ tr td {background-color: rgba(255, 255, 255, 0.2);}
 /*tr:hover {background-color: rgba(250,225,208,1);}*/

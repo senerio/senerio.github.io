@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Team Calculator</title>
+	<meta name="viewport" content="width=device-width">
+	<style>
+	main { text-align: center; }
+	table { width: 100%; }
+	td { width: calc(15% - 2em); }
+	td input { width: 90%; }
+	</style>
+	<script src="list.js"></script>
+</head>
+<body>
+<main>
+	<div>
+		Enemy Color: 
+		<select>
+			<option value="blue">Blue</option>
+			<option value="red">Red</option>
+			<option value="green">Green</option>
+			<option value="yellow">Yellow</option>
+			<option value="purple">Purple</option>
+		</select>
+	</div>
+
+	<table>
+		<thead>
+			<th colspan="7"><h3>Team</h3></th>
+		</thead>
+		<tr>
+			<th>&nbsp;</th>
+			<th>Leader</th>
+			<th>2</th>
+			<th>3</th>
+			<th>4</th>
+			<th>5</th>
+			<th>Support</th>
+			<th>Total</th>
+		</tr>
+		<tr>
+			<th>Prince</th>
+			<td><input list="member1Options" id="member1"><datalist class="princeList" id="member1Options"></datalist></td>
+			<td><input list="member2Options" id="member2"><datalist class="princeList" id="member2Options"></datalist></td>
+			<td><input list="member3Options" id="member3"><datalist class="princeList" id="member3Options"></datalist></td>
+			<td><input list="member4Options" id="member4"><datalist class="princeList" id="member4Options"></datalist></td>
+			<td><input list="member5Options" id="member5"><datalist class="princeList" id="member5Options"></datalist></td>
+			<td><input list="member6Options" id="member5"><datalist class="princeList" id="member6Options"></datalist></td>
+			<th></th>
+		</tr>
+		<tr>
+			<th>ATK</th>
+			<td><input></td>
+			<td><input></td>
+			<td><input></td>
+			<td><input></td>
+			<td><input></td>
+			<td><input></td>
+			<th></th>
+		</tr>
+		<tr>
+			<th>RP</th>
+			<td><input></td>
+			<td><input></td>
+			<td><input></td>
+			<td><input></td>
+			<td><input></td>
+			<td><input></td>
+			<th></th>
+		</tr>
+	</table>
+	<script>
+		init();
+		function init() {
+			princeLists = document.getElementsByClassName("princeList");
+			for(var i=0; i < princeLists.length; i++) {
+				populatePrinceDropdown(princeLists[i]);
+			}
+		}
+		function populatePrinceDropdown(datalist) {
+			for(id in list) {
+				if(id < 1000) {
+					var option = document.createElement("option");
+					option.value = list[id]["name"];
+					datalist.appendChild(option).setAttribute("data-value",list[id]["cardId"]);
+				}
+			}
+		}
+	</script>
+</main>
+</body>
+</html>
