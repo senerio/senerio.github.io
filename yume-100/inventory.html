@@ -68,6 +68,7 @@
 	var total3 = princes.filter(byRarity,3).length;
 	var total2 = princes.filter(byRarity,2).length;
 	var total1 = princes.filter(byRarity,1).length;
+	var count = [0,0,0,0,0];
 	populate();
 	writeTotals();
 
@@ -91,6 +92,7 @@
 				for(p of list) {
 					parent = document.getElementById("rarity-"+r).getElementsByClassName(a)[0];
 					child = document.createElement("button");
+					child.setAttribute("value",r);
 					child.innerHTML = p.name;
 					parent.appendChild(child);
 					parent.appendChild(document.createElement("br"));
@@ -103,6 +105,40 @@
 	}
 	function byRarity(p) {
 		return p.rarity == this;
+	}
+
+	buttons = document.getElementsByTagName("button");
+	for(var i=0; i<buttons.length; i++) {
+		buttons[i].addEventListener("click",toggle);
+	}
+	function toggle() {
+		var state = this.getAttribute("class");
+		var rarity = parseInt(this.value)-1;
+		if(state == "selected") {
+			this.setAttribute("class","default");
+			count[rarity] -= 1;
+		}
+		else {
+			this.setAttribute("class","selected");
+			count[rarity] += 1;
+		}
+		update();
+	}
+
+	function update() {
+		var countSum = count[4]+count[3]+count[2]+count[1]+count[0];
+		setElement("count-5", count[4]);
+		setElement("count-4", count[3]);
+		setElement("count-3", count[2]);
+		setElement("count-2", count[1]);
+		setElement("count-1", count[0]);
+		setElement("percent-5", Math.round(count[4]/total5*100));
+		setElement("percent-4", Math.round(count[3]/total4*100));
+		setElement("percent-3", Math.round(count[2]/total3*100));
+		setElement("percent-2", Math.round(count[1]/total2*100));
+		setElement("percent-1", Math.round(count[0]/total1*100));
+		setElement("count-all", countSum);
+		setElement("percent-all", Math.round(countSum/totalAll*100));
 	}
 	</script>
 </body>
