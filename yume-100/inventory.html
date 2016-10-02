@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Prince Inventory</title>
+	<link href="style.css" rel="stylesheet" type="text/css">
+	<script src="list.js"></script>
+	<meta name="viewport" content="width=device-width">
+</head>
+<body>
+	<div id="result">
+		<span id="count">0</span> / <span id="total">0</span> (<span id="percent">0</span> % owned)
+	</div>
+	<div id="side">
+		<input list="princes" id="input">
+		<datalist id="princes">
+		</datalist>
+		<button id="add">+</button>
+		<p id="added">
+		</p>
+	</div>
+	<script>
+		var datalist = document.getElementById("princes");
+		var displayCount = document.getElementById("count");
+		var displayTotal = document.getElementById("total");
+		var displayPercent = document.getElementById("percent");
+		var total = 331;
+		var count = 0;
+		var ownedArray = [];
+		init();
+		displayTotal.innerHTML = total;
+		document.getElementById("input").addEventListener("keyup", addByEnter);
+		document.getElementById("add").addEventListener("click", add);
+
+		function init() {
+			generateDropdown();
+		}
+		function generateDropdown() {
+			for(id in list) {
+				if(id < 1000) {
+					var option = document.createElement("option");
+					option.value = list[id]["name"];
+					datalist.appendChild(option).setAttribute("data-value",list[id]["cardId"]);
+				}
+			}
+		}
+		function add() {
+			var input = document.getElementById("input").value;
+			cardId = updateResult(input, true);
+			if(cardId != 0) {
+				appendList(input, cardId);
+				clearInput(input);
+			}
+		}
+		function addByEnter(event) {
+			if(event.keyCode == 13) {
+				add();
+			}
+		}
+		function appendList(input, cardId) {
+			document.getElementById("added").innerHTML += "<button id=\""
+				+ cardId
+				+ "\""
+				+ " onclick=\"remove(\'"
+				+ cardId
+				+ "\')\""
+				+ ">"
+				+ input
+				+ "</button>";
+		}
+
+		function remove(id) {
+			updateResult(id, false);
+			document.getElementById(id).remove();
+		}
+
+		function clearInput(input) {
+			document.getElementById("input").value = "";	
+		}
+
+		function updateResult(input, add) {
+			var cardId = 0
+			if(add) {
+				for(var i=0; i < datalist.options.length; i++) {
+					if(datalist.options[i].value == input) {
+						cardId = datalist.options[i].getAttribute("data-value");
+					}
+				}
+				if( ownedArray.indexOf(input) == -1 ) {
+					count++;
+					ownedArray.push(input);
+				}
+			}
+			else {
+				count--;
+				ownedArray = ownedArray.filter(function(elem) {
+					return elem != input;
+				});
+			}
+			displayCount.innerHTML = count;
+			displayPercent.innerHTML = Math.round(count/total*100,1);
+			return cardId;
+		}
+
+	</script>
+</body>
+</html>

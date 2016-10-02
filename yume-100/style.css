@@ -16,7 +16,7 @@ div#side {
 	flex-grow: 1;
 	padding: 1.0em 0.5em;
 	overflow-y: scroll;
-	background-color: rgba(250,225,208,1);
+	background-color: rgba(225,225,225,1);
 	height: 100vh;
 	/*background-color: rgba(172,150,126,1);*/
 }

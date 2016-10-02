@@ -1,4 +1,4 @@
-./drafts
-./yume-100/master
-./yume-100/exe
+./drafts/*
+./yume-100/master/*
+./yume-100/exe/*
 *.rb
