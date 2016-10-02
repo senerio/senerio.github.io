@@ -43,3 +43,58 @@ td {
 #awakening td:nth-child(6) {background-color: rgba(152, 35, 219, 0.2);}
 #awakening tr:nth-child(6) ~ tr td {background-color: rgba(255, 255, 255, 0.2);}
 /*tr:hover {background-color: rgba(250,225,208,1);}*/
+
+.inventory header,
+.inventory footer,
+.inventory h2 {
+	display: block;
+	width: 100%;
+	background-color: #333;
+	color: #fff;
+	text-align: center;
+	margin: 0;
+}
+.inventory header {
+	padding: 1em;
+}
+.inventory footer {
+	font-size: x-small;
+}
+.inventory h3, .inventory h1 {
+	width: 50%;
+	text-align: center;
+	margin: 0;
+	border-bottom: 2px solid #333;
+}
+.inventory > div {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	flex-grow: 1;
+	margin: 0;
+}
+.inventory div > div {
+	padding: 0.5em;
+	flex-grow: 1;
+}
+.inventory .cool {
+	background-color: #85b4ea;
+}
+.inventory .passion {
+	background-color: #e590a5;
+}
+.inventory .gentle {
+	background-color: #bcd1ab;
+}
+.inventory .cute {
+	background-color: #e8e7c0;
+}
+.inventory .sexy {
+	background-color: #ddc0e8;
+}
+.inventory button {
+	border-radius: 0.5em;
+	background-color: rgba(255,255,255,0.5);
+	border-width: 1px;
+	width: 100%;
+}
