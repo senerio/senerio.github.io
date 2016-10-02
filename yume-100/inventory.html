@@ -24,15 +24,24 @@
 		var displayTotal = document.getElementById("total");
 		var displayPercent = document.getElementById("percent");
 		var total = 331;
-		var count = 0;
-		var ownedArray = [];
+		var ownedArray = ["Avi"];
+		var completeArray = [];
 		init();
-		displayTotal.innerHTML = total;
 		document.getElementById("input").addEventListener("keyup", addByEnter);
 		document.getElementById("add").addEventListener("click", add);
 
 		function init() {
 			generateDropdown();
+			generateCompleteArray();
+			displayTotal.innerHTML = total;
+			displayCount.innerHTML = ownedArray.length;
+		}
+		function generateCompleteArray() {
+			for(id in list) {
+				if(id < 1000) {
+					completeArray.push(list[id]["name"]);
+				}
+			}
 		}
 		function generateDropdown() {
 			for(id in list) {
@@ -85,19 +94,17 @@
 						cardId = datalist.options[i].getAttribute("data-value");
 					}
 				}
-				if( ownedArray.indexOf(input) == -1 ) {
-					count++;
+				if( ownedArray.indexOf(input) == -1 && completeArray.indexOf(input) != -1 ) {
 					ownedArray.push(input);
 				}
 			}
 			else {
-				count--;
 				ownedArray = ownedArray.filter(function(elem) {
 					return elem != input;
 				});
 			}
-			displayCount.innerHTML = count;
-			displayPercent.innerHTML = Math.round(count/total*100,1);
+			displayCount.innerHTML = ownedArray.length;
+			displayPercent.innerHTML = Math.round(ownedArray.length/total*100,1);
 			return cardId;
 		}
 
