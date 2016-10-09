@@ -1,0 +1,95 @@
+body {
+	background-color: #B4B4B4;
+	font-family: Helvetica, Arial, sans-serif;
+}
+.room {
+	background-color: #333;
+	padding: 10px 80px;
+	margin: auto;
+	width: 50%;
+}
+
+/* name */
+dt {
+	color: #fff;
+	margin-top: 10px;
+	position: relative;
+}
+.p {
+	text-align: right;
+}
+/* avatar */
+dt:not(.p)::before {
+	position: absolute;
+	right: calc(100% + 60px);
+	zoom: 30%;
+}
+/* avatar (player) */
+dt.p::before {
+	position: absolute;
+	left: calc(100% + 60px);
+	zoom: 30%;
+}
+.y::before { content: url('y.png'); }
+.s::before { content: url('s.png'); }
+.h::before { content: url('h.png'); }
+.g::before { content: url('g.png'); }
+.j::before { content: url('j.png'); }
+.v::before { content: url('v.png'); }
+.p::before { content: url('p.png'); }
+
+/* message bubble */
+dd {
+	border-radius: 0.5em;
+	background-color: #FFFFFF;
+	padding: 0.5em;
+	position: relative;
+	margin-left: 0px;
+}
+/* message bubble colors */
+.y+dd { background-color: rgb(239,255,243); }
+.s+dd { background-color: rgb(255,241,241); }
+.h+dd { background-color: rgb(243,253,255); }
+.g+dd { background-color: rgb(229,229,229); }
+.j+dd { background-color: rgb(253,243,234); }
+.v+dd { background-color: rgb(203,252,252); }
+.p+dd { background-color: rgb(255,255,237); }
+/* chat arrow */
+dt:not(.p) + dd::before {
+	content: '';
+	height: 0;
+	width: 0;
+	font-size: 0;
+	border-top: 4px solid transparent;
+	border-bottom: 4px solid transparent;
+	border-right: 10px solid #fff;
+	position: absolute;
+	left: -10px;
+	top: 7px;
+}
+/* chat arrow (player) */
+.p+dd::before {
+	content: '';
+	height: 0;
+	width: 0;
+	font-size: 0;
+	border-top: 4px solid transparent;
+	border-bottom: 4px solid transparent;
+	border-left: 10px solid #fff;
+	position: absolute;
+	right: -10px;
+	top: 7px;
+}
+
+/* system messages */
+p {
+	text-align: center;
+	color: #B4B4B4;
+	font-weight: bold;
+}
+p.leave::after {
+	content: ' left the chatroom.';
+}
+p.enter::after {
+	content: ' entered the chatroom.';
+}
