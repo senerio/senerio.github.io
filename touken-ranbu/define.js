@@ -359,6 +359,18 @@ define = {
 		"scouting":"47",
 		"camouflage":"39",
 	},
+	50: {
+		"name":"Yagen Toushirou",
+		"type":"Tantou",
+		"survival":"?",
+		"impact":"89",
+		"leadership":"79",
+		"mobility":"135",
+		"impulse":"36",
+		"loyalty":"42",
+		"scouting":"99",
+		"camouflage":"119",
+	},
 	55: {
 		"name":"Uguisumaru",
 		"type":"Tachi",
