@@ -399,9 +399,16 @@
 "342":{"no":"309","name":"Million (Onsen)"},
 "343":{"no":"310","name":"Totori (Onsen)"},
 "344":{"no":"311","name":"Caliburn (Onsen)"},
-"345":{"no":"312","name":"Oka ()"},
-"346":{"no":"313","name":"Roie ()"},
-"347":{"no":"314","name":"Forma ()"},
-"348":{"no":"315","name":"Leeya ()"},
-"81033":{"no":"81033","name":"Fairy Princess"}
+"345":{"no":"312","name":"Oka (Serenade)"},
+"346":{"no":"313","name":"Roie (Serenade)"},
+"347":{"no":"314","name":"Forma (Serenade)"},
+"348":{"no":"315","name":"Leeya (Serenade)"},
+"81033":{"no":"81033","name":"Fairy Princess (Serenade)"},
+"333":{"no":"316","name":"Mihama Kouji"},
+"334":{"no":"317","name":"Hayami Hiro"},
+"335":{"no":"318","name":"Cheshire Cat (Kinpri)"},
+"336":{"no":"319","name":"Marchia (Kinpri)"},
+"337":{"no":"320","name":"Chrono (Kinpri)"},
+"338":{"no":"321","name":"Nishina Kazuki"},
+"81034":{"no":"81034","name":"Fairy Princess (Kinpri)"}
 }
