@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Transmigration</title>
+	<meta name="viewport" content="width=device-width">
+	<meta charset="UTF-8">
+	<style>
+	body {
+		font-size: medium;
+		font-family: sans-serif;
+	}
+	main > div {
+		text-align: center;
+	}
+	table {
+		width: 100%; border-collapse: separate; border-spacing: 0;
+	}
+	th {
+		padding: 0.5em 0 0.1em 0; border-bottom: 1px solid #7A4621;
+	    text-align: center; text-transform: uppercase;
+	}
+	th a {
+		text-decoration: none; color: #7A4621;
+	}
+	td {
+		border-bottom: 1px solid #d6bdab; padding: 0.3em;
+	}
+	td:first-child {
+		font-weight: bold;
+	}
+	tbody tr:nth-child(2n+1) {
+		background-color: #FFFAF1;
+	}
+	select, button {
+		height: 50px; font-family: serif; font-size: x-large;
+	}
+	input, button, select {
+	    background-color: #FFFAF1; color: #7A4621;
+	    border: 2px solid #F5E3D8; padding: 10px;
+	    box-shadow: 2px 2px 1px #F5E3D8;
+	    border-radius: 10px 5px;
+	}
+	button:active, select:focus {
+	    background-color: #7A4621; color: #FFFAF1;
+	    box-shadow: 2px 2px 1px #F5E3D8 inset;
+	}
+	@media only screen and (min-width: 600px) {
+	    main {
+	        overflow: scroll; width: calc(100% - 300px); margin: auto;
+	    }
+	}
+	@media only screen and (max-width: 599px) {
+	    main {
+	        width: 100%;
+	    }
+	}
+	</style>
+	<script src="../common/tablesort.js"></script>
+	<script src="writers.js"></script>
+	<script src="logs.js"></script>
+	<script>
+	window.onload = function() {
+		populate();
+		document.getElementById("submitResult").onclick = printResult;
+	}
+	function populate() {
+		var result = document.getElementById("result");
+		for(var i in writers) {
+			var option = document.createElement("option");
+			option.setAttribute("value", writers[i]);
+			option.innerHTML = writers[i];
+			result.appendChild(option);
+		}
+	}
+	function getData(writer) {
+		var logResult = [];
+		for(var row of logs) {
+			if(row.result == writer) {
+				logResult.push(row);
+			}
+		}
+		return logResult;
+	}
+	function printResult() {
+		var writerOptions = document.getElementById("result");
+		var writer = writerOptions.options[writerOptions.selectedIndex].value;
+		var filteredLogs = getData(writer);
+		var resultArea = document.getElementById("data");
+		resultArea.innerHTML = "";
+		try {
+			for(var data of filteredLogs) {
+				resultArea.innerHTML += "<tr><td>" + data.result + "</td><td>" + data.ink + "</td><td>" + data.bookmark + "</td><td>" + data.timer + "</td><td>" + data.assistant + "</td><td>" + data.diver + "</td><td>" + "" + "</td></tr>";
+			}
+			resultArea.removeChild(resultArea.lastChild);
+		} catch(e) {}
+	}
+	</script>
+</head>
+<body><main>
+	<div>
+		<select id="result"></select>
+		<button id="submitResult" type="submit">=</button>
+	</div>
+	<div>
+		<table>
+			<thead>
+				<th class="nocase">Writer</th>
+				<th class="num">Ink</th>
+				<th class="nocase">BM</th>
+				<th class="num">Timer</th>
+				<th class="nocase">Assistant</th>
+				<th class="nocase">Diver</th>
+				<th class="num">Count</th>
+			</thead>
+			<tbody id="data"></tbody>
+		</table>
+	</div>
+</main></body>
+</html>
