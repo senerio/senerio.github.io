@@ -89,7 +89,7 @@
 		resultArea.innerHTML = "";
 		try {
 			for(var data of filteredLogs) {
-				resultArea.innerHTML += "<tr><td>" + data.result + "</td><td>" + data.ink + "</td><td>" + data.bookmark + "</td><td>" + data.timer + "</td><td>" + data.assistant + "</td><td>" + data.diver + "</td><td>" + "" + "</td></tr>";
+				resultArea.innerHTML += "<tr><td>" + data.result + "</td><td>" + data.ink + "</td><td>" + data.bookmark + "</td><td>" + data.timer + "</td><td>" + data.assistant + "</td><td>" + data.diver + "</td></tr>";
 			}
 			resultArea.removeChild(resultArea.lastChild);
 		} catch(e) {}
@@ -110,7 +110,6 @@
 				<th class="num">Timer</th>
 				<th class="nocase">Assistant</th>
 				<th class="nocase">Diver</th>
-				<th class="num">Count</th>
 			</thead>
 			<tbody id="data"></tbody>
 		</table>
