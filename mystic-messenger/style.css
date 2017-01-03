@@ -4,9 +4,9 @@ body {
 }
 .room {
 	background-color: #333;
-	padding: 10px 80px;
+	padding: 10px 70px;
 	margin: auto;
-	width: 50%;
+	max-width: 600px;
 }
 
 /* name */
@@ -55,7 +55,7 @@ dd {
 .v+dd { background-color: rgb(203,252,252); }
 .p+dd { background-color: rgb(255,255,237); }
 /* chat arrow */
-dt:not(.p) + dd::before {
+dt:not(.p):not(.vn) + dd::before {
 	content: '';
 	height: 0;
 	width: 0;
@@ -82,7 +82,7 @@ dt:not(.p) + dd::before {
 }
 
 /* system messages */
-p {
+p.leave, p.enter {
 	text-align: center;
 	color: #B4B4B4;
 	font-weight: bold;
@@ -92,4 +92,35 @@ p.leave::after {
 }
 p.enter::after {
 	content: ' entered the chatroom.';
+}
+p.error {
+	color: red;
+	background-color: #fff;
+}
+
+/* choice identifier */
+.option {
+	background-color: #ccc;
+	padding: 0.5em 1em;
+	width: 90%;
+	border: 3px outset #aaa;
+	display: block;
+	margin: 1em auto;
+	text-align: left;
+	white-space: normal;
+}
+.option:focus {
+	background-color: #fff;
+}
+.select {
+	display: none;
+	margin: auto;
+	width: calc(100% - 80px);
+}
+.selectset {
+	border-left: 1px solid #fff;
+	border-right: 1px solid #fff;
+	border-radius: 1em;
+	margin: 1em 0;
+	padding: 1em 0;
 }
