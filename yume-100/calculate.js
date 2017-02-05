@@ -27,7 +27,7 @@ function generateDropdown() {
 		else {
 			var option = document.createElement("option");
 			option.value = list[id]["name"];
-			datalist.appendChild(option).setAttribute("data-value",list[id]["cardId"]);
+			datalist.appendChild(option).setAttribute("data-value",id);
 		}
 	}
 }
