@@ -1,4 +1,4 @@
--n var list = 
+var list = 
 {
 	"1": {
 		"no": 40,
