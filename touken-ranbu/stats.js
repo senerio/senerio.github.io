@@ -27,13 +27,19 @@ function display() {
 		var fatigue = response.sword[toudan].fatigue;
 		var level = response.sword[toudan].level;
 		var toku = response.sword[toudan].evol_num;
-		var survival = response.sword[toudan].hp_max;
-		var impact = response.sword[toudan].atk;
-		var leadership = response.sword[toudan].def;
-		var mobility = response.sword[toudan].mobile;
-		var impulse = response.sword[toudan].back;
-		var scouting = response.sword[toudan].scout;
-		var camouflage = response.sword[toudan].hide;
+		var survival = parseInt(response.sword[toudan].hp_max);
+		var impact = parseInt(response.sword[toudan].atk);
+		var leadership = parseInt(response.sword[toudan].def);
+		var mobility = parseInt(response.sword[toudan].mobile);
+		var impulse = parseInt(response.sword[toudan].back);
+		var scouting = parseInt(response.sword[toudan].scout);
+		var camouflage = parseInt(response.sword[toudan].hide);
+		var survival_max = survival+parseInt(response.sword[toudan].hp_up);
+		var impact_max = impact+parseInt(response.sword[toudan].atk_up);
+		var leadership_max = leadership+parseInt(response.sword[toudan].def_up);
+		var mobility_max = mobility+parseInt(response.sword[toudan].mobile_up);
+		var impulse_max = impulse+parseInt(response.sword[toudan].back_up);
+		var scouting_max = scouting+parseInt(response.sword[toudan].scout_up);
 		var loyalty = response.sword[toudan].loyalties;
 		var birth = response.sword[toudan].created_at;
 		// check if sword id is defined otherwise show blanks
@@ -41,25 +47,9 @@ function display() {
 		if (define[no] !== undefined) {
 			var name = define[no].name;
 			var type = define[no].type;
-			var survival_max = define[no].survival;
-			var impact_max = define[no].impact;
-			var leadership_max = define[no].leadership;
-			var mobility_max = define[no].mobility;
-			var impulse_max = define[no].impulse;
-			var loyalty_max = define[no].loyalty;
-			var scouting_max = define[no].scouting;
-			var camouflage_max = define[no].camouflage;
 		} else {
 			var name = "";
 			var type = "";
-			var survival_max = "";
-			var impact_max = "";
-			var leadership_max = "";
-			var mobility_max = "";
-			var impulse_max = "";
-			var loyalty_max = "";
-			var scouting_max = "";
-			var camouflage_max = "";
 		}
 		// computations
 		var days = new Date() - Date.parse(birth.replace(/-/g,"/"));
