@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+input, textarea {width: 100%;}
+textarea {height: 95vh;}
+</style>
+<script type="text/javascript">
+	window.onload = function() {
+		document.getElementById("button").addEventListener("click", replace);
+		function replace() {
+			var text = document.getElementById("text");
+			lines = text.value.split('\n');
+			var replaced = "";
+			var prev_name = "_";
+			for (line of lines) {
+
+				if(line == "") {
+					continue;
+				}
+
+				var name = line.split('\t')[0];
+				var dialogue = line.split('\t')[1];
+				line = ""
+
+				if(dialogue.indexOf("StoryBreak") >= 0) {
+					line += "\n" + dialogue;
+					prev_name = "storybreak";
+				}
+				else if(dialogue.indexOf("\"") < 0) {
+					if(prev_name == "narrator") {
+						replaced = replaced.replace(new RegExp("\n}}" + '$'), '');
+						line += "<br>" + dialogue + "\n}}";
+					} else {
+						replaced += "\n{{StoryNarration"
+						line += "\n|" + dialogue + "\n}}";
+					}
+					prev_name = "narrator";
+				}
+				else {
+					if(prev_name == name) {
+						replaced = replaced.replace(new RegExp("\n}}" + '$'), '');
+						line += "<br>" + dialogue + "\n}}";
+					} else {
+						replaced += "\n{{StoryText"
+						line += "\n|speaker = " + name;
+						line += "\n|text = " + dialogue + "\n}}";
+					}
+					prev_name = name;
+				}
+				
+				
+				
+				replaced += line;
+			}
+			
+			text.value = replaced;
+		}
+	}
+</script>
+</head>
+<body>
+<textarea id="text"></textarea><input type="button" value="Go" id="button">
+</body>
+</html>
